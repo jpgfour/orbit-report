@@ -15,7 +15,7 @@ export class OrbitListComponent implements OnInit {
   ngOnInit() {
   }
 
-  flipFlop: boolean = true;
+  switch: boolean = true;
 
   sort(column: string): void {
     // array.sort modifies the array, sorting the items based on the given compare function
@@ -29,23 +29,10 @@ export class OrbitListComponent implements OnInit {
     });
   }
 
-  stripe(satellite): string {
-    
-    if(satellite.shouldShowWarning()){
-      this.flipFlop = !this.flipFlop;
-      return "#f72c2c";
-      
-    }
-    else if(this.flipFlop) {
-      this.flipFlop = !this.flipFlop;
-      return "aqua";
-  
-    }else{
-      this.flipFlop = !this.flipFlop;
-      return "pink";
-      
-    }
-    this.flipFlop = !this.flipFlop;
+  toggle(): boolean {
+    this.switch = !this.switch;
+    return this.switch;
   }
+
 
 }
